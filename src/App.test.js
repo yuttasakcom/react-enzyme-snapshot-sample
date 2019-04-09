@@ -50,7 +50,7 @@ describe("test counter app", () => {
   });
 
   test("clicking button increments counter", () => {
-    const count = 7;
+    const count = Math.floor(Math.random() * 10 + 1);
     const wrapper = setup(null, { count });
 
     // find button and click
@@ -60,11 +60,11 @@ describe("test counter app", () => {
 
     // find display and test value
     const counterDisplay = wrapper.find('[data-test="display-counter"]');
-    expect(counterDisplay.text()).toEqual("8");
+    expect(counterDisplay.text()).toEqual(String(count + 1));
   });
 
   test("clicking button decrements counter", () => {
-    const count = 7;
+    const count = Math.floor(Math.random() * 10 + 1);
     const wrapper = setup(null, { count });
 
     // find button and click
@@ -74,7 +74,7 @@ describe("test counter app", () => {
 
     // find display and test value
     const counterDisplay = wrapper.find('[data-test="display-counter"]');
-    expect(counterDisplay.text()).toEqual("6");
+    expect(counterDisplay.text()).toEqual(String(count - 1));
   });
 
   test("clicking button decrements = 0", () => {
